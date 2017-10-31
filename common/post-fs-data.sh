@@ -33,4 +33,8 @@ $resetprop ro.bootimage.build.fingerprint "Xiaomi/ido/ido:5.1.1/LMY47V/V8.1.3.0.
 #$resetprop ro.build.tags release-keys
 
 # https://github.com/topjohnwu/MagiskManager/issues/112#issuecomment-280993699
-sh /magisk/.core/magiskhide/enable
+if [ -d "/magisk/.core/magiskhide" ]; then
+  sh /magisk/.core/magiskhide/enable
+else
+  /data/magisk/magisk magiskhide --enable
+fi
